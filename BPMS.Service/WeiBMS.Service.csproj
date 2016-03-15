@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CF7CC60-9C51-4B0F-9EEC-FF70CB1B190D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BPMS.Service</RootNamespace>
+    <AssemblyName>BPMS.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseManager\BASE_InterfaceManageDAL.cs" />
+    <Compile Include="BaseManager\BPMS_AppendPropertyDAL.cs" />
+    <Compile Include="BaseManager\BPMS_ButtonDAL.cs" />
+    <Compile Include="BaseManager\BPMS_DataPermissionDAL.cs" />
+    <Compile Include="BaseManager\BPMS_EmployeeDAL.cs" />
+    <Compile Include="BaseManager\BPMS_InterfaceAccessDAL.cs" />
+    <Compile Include="BaseManager\BPMS_IPBlacklistDAL.cs" />
+    <Compile Include="BaseManager\BPMS_ItemDetailsDAL.cs" />
+    <Compile Include="BaseManager\BPMS_ItemsDAL.cs" />
+    <Compile Include="BaseManager\BPMS_OrganizationDAL.cs" />
+    <Compile Include="BaseManager\BPMS_RoleMenuButtonDAL.cs" />
+    <Compile Include="BaseManager\BPMS_RoleMenuDAL.cs" />
+    <Compile Include="BaseManager\BPMS_RolesDAL.cs" />
+    <Compile Include="BaseManager\BPMS_ShortcutDAL.cs" />
+    <Compile Include="BaseManager\BPMS_SysLogDAL.cs" />
+    <Compile Include="BaseManager\BPMS_SysMenuButtonDAL.cs" />
+    <Compile Include="BaseManager\BPMS_SysMenuDAL.cs" />
+    <Compile Include="BaseManager\BPMS_TableColumnsDAL.cs" />
+    <Compile Include="BaseManager\BPMS_UserDAL.cs" />
+    <Compile Include="BaseManager\BPMS_UserMenuButtonDAL.cs" />
+    <Compile Include="BaseManager\BPMS_UserMenuDAL.cs" />
+    <Compile Include="BaseManager\BPMS_UserRoleDAL.cs" />
+    <Compile Include="BaseManager\BPMS_DataBaseDAL.cs" />
+    <Compile Include="BaseManager\BASE_FileDAL.cs" />
+    <Compile Include="BaseManager\BASE_NewsDAL.cs" />
+    <Compile Include="DBHelperFactory\DataFactory.cs" />
+    <Compile Include="BaseManager\BPMS_PermissionDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QYManager\BPMS_QYNumberDAL.cs" />
+    <Compile Include="Utilities\DataPermission.cs" />
+    <Compile Include="Utilities\LogOnHelper.cs" />
+    <Compile Include="Utilities\StorePermission.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BPMS.Entity\WeiBMS.Entity.csproj">
+      <Project>{d9aff79a-faff-46e7-9130-9e92eb118df6}</Project>
+      <Name>WeiBMS.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.DataAccess\DotNet.DataAccess.csproj">
+      <Project>{66d6a76d-5fbd-445e-8aa9-cf620f3ac225}</Project>
+      <Name>DotNet.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.Kernel\DotNet.Kernel.csproj">
+      <Project>{46e0eaa8-cd7a-45cd-aa6d-debe5f05bfd8}</Project>
+      <Name>DotNet.Kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.Utilities\DotNet.Utilities.csproj">
+      <Project>{800ffc48-44e1-4b75-8738-4ee64a88a542}</Project>
+      <Name>DotNet.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{800FFC48-44E1-4B75-8738-4EE64A88A542}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotNet.Utilities</RootNamespace>
+    <AssemblyName>DotNet.Utilities</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=5.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DotNetCode\ClassHelper.cs" />
+    <Compile Include="DotNetData\ComparintHelper.cs" />
+    <Compile Include="DotNetData\IListHelper.cs" />
+    <Compile Include="DotNetFile\MyDateSorter.cs" />
+    <Compile Include="DotNetJson\ConvertJson.cs" />
+    <Compile Include="DotNetWebService\DynamicWebServices.cs" />
+    <Compile Include="PDF\PDFOperation.cs" />
+    <Compile Include="DotNetWebService\WebServiceHelper.cs" />
+    <Compile Include="XML操作类\XmlHelper.cs" />
+    <Compile Include="XML操作类\XMLProcess.cs" />
+    <Compile Include="图片处理\ImageClass.cs" />
+    <Compile Include="图片处理\ImageDown.cs" />
+    <Compile Include="图片处理\ImageUpload.cs" />
+    <Compile Include="导出Excel_Word\WordHelper.cs" />
+    <Compile Include="条形码\BarCodeToHTML.cs" />
+    <Compile Include="DotNetBean\CookieHelper.cs" />
+    <Compile Include="DotNetBean\RequestSession.cs" />
+    <Compile Include="DotNetBean\SessionUser.cs" />
+    <Compile Include="DotNetCode\CacheHelper.cs" />
+    <Compile Include="DotNetCode\CommonHelper.cs" />
+    <Compile Include="DotNetCode\ConvertHelper.cs" />
+    <Compile Include="DotNetCode\DateTimeHelper.cs" />
+    <Compile Include="DotNetCode\LogHelper.cs" />
+    <Compile Include="DotNetCode\PinyinHelper.cs" />
+    <Compile Include="DotNetCode\RequestHelper.cs" />
+    <Compile Include="DotNetCode\RMBHelper.cs" />
+    <Compile Include="DotNetCode\SqlFilterHelper.cs" />
+    <Compile Include="字符串\StringHelper.cs" />
+    <Compile Include="正则表达式\ValidateUtil.cs" />
+    <Compile Include="DotNetData\DataTableHelper.cs" />
+    <Compile Include="DotNetData\HashtableHelper.cs" />
+    <Compile Include="DotNetData\XMLHelper.cs" />
+    <Compile Include="邮件\SMTPManager.cs" />
+    <Compile Include="DotNetFile\DirFileHelper.cs" />
+    <Compile Include="DotNetFile\FileDownHelper.cs" />
+    <Compile Include="DotNetFile\FileHelper.cs" />
+    <Compile Include="DotNetFile\FTPHelper.cs" />
+    <Compile Include="DotNetFile\GZipHelper.cs" />
+    <Compile Include="DotNetFile\UploadHelper.cs" />
+    <Compile Include="DotNetJson\JsonHelper.cs" />
+    <Compile Include="配置\BaseSystemInfo.cs" />
+    <Compile Include="页面辅助类\ControlBindHelper.cs" />
+    <Compile Include="导出Excel_Word\ExcelHelper.cs" />
+    <Compile Include="页面辅助类\HTMLHelper.cs" />
+    <Compile Include="页面辅助类\IPScanerHelper.cs" />
+    <Compile Include="ResourceManager\MessageHelper.cs" />
+    <Compile Include="页面辅助类\ShowMsgHelper.cs" />
+    <Compile Include="页面辅助类\WebHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="日历\CNDate.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet.Kernel\DotNet.Kernel.csproj">
+      <Project>{1e8711db-7ef5-4a84-b6ee-0afa84b8f9ce}</Project>
+      <Name>DotNet.Kernel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

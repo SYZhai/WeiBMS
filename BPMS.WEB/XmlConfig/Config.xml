@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+  <!-- ================== 1：数据库连接相关配置 ================== -->
+  <!--数据库软件类型：Oracle,SQLServer,MySql-->
+  <add key="ComponentDbType" value="SQLServer" />
+  <!-- 连接字符串是否加密-->
+  <add key="ConStringEncrypt" value="false" />
+  <!-- 当前数据库名称,如果有多个数据库用【;】隔开：A;B;C;D;-->
+  <add key="DBName" value="BPMS" />
+  <!-- SqlServer连接字符串:Server=服务器地址;Database=库名;Uid=用户;Pwd=密码-->
+  <add key="SqlServer_BPMS" value="Server=.;Database=WeiBMS;Uid=sa;Pwd=123qwe" />
+  <!-- Oracle连接字符串:Data Source=数据库;User ID=用户;Uid=用户;Password=密码-->
+  <add key="Oracle_BPMS" value="Data Source=XE;User ID=learun;Password=qwertyuiop;" />
+  <!-- MySql连接字符串:server=服务器地址; user id=用户; password=密码; database=库名-->
+  <add key="MySql_BPMS" value="server=192.168.0.110;user id=root;password=qwertyuiop;database=BPMS_DB;" />
+
+  <!-- ================== 2：这里主要是服务器端配置项内容部分 ================== -->
+  <!-- 系统默认登录账户 -->
+  <add key="CurrentUserName" value="System" />
+  <!-- 系统默认登录密码 -->
+  <add key="CurrentPassword" value="4A7D1ED414474E4033AC29CCB8653D9B" />
+  <!-- 是否启动服务器缓存-->
+  <add key="IsCache" value="true" />
+  <!-- 服务器缓存设置时间（分钟）-->
+  <add key="TimeCache" value="5" />
+  <!-- 是否自动重启IIS-->
+  <add key="IsRestartIIS" value="false" />
+  <!-- 自动重启IIS设置时间（每天凌晨05点）-->
+  <add key="RestartIISTime" value="22:33:00" />
+  <!-- 是否写日志-->
+  <add key="LogIsWrite" value="true" />
+  <!-- 系统日志保存路径-->
+  <add key="LogFilePath" value="C://BPMS_Log" />
+  <!-- 允许恢复数据库-->
+  <add key="IsRecoverData" value="false" />
+  <!-- 是否启动自动备份数据库-->
+  <add key="IsBackupsData" value="true" />
+  <!-- 自动启动备份数据库设置时间（每天;凌晨05点）-->
+  <add key="BackupsDataTime" value="05:00:00" />
+  <!-- 最大在线用户数量限制 -->
+  <add key="OnLineLimit" value="200" />
+  <!-- 允许重复登录,多人用同一帐号同时登录 -->
+  <add key="CheckOnLine" value="false" />
+  <!-- 是否开启IP限制 -->
+  <add key="CheckIPAddress" value="true"/>
+  <!-- 是否开启接口限制 ,有效用户可以访问接口-->
+  <add key="CheckInterface" value="true"/>
+
+
+  <!-- ================== 3：系统性的参数配置 ================== -->
+  <!-- 软件是否试用 -->
+  <add key="IsRegistration" value="false" />
+  <!-- 软件注册码 -->
+  <add key="RegistrationCode" value="2A1B132C0E64FA299B014B39F7DE5C2F" />
+  <!-- 当前客户公司名称 -->
+  <add key="CustomerCompanyName" value="山东欧信工业技术" />
+  <!-- 软件名称 -->
+  <add key="SoftName" value="微企业管理系统（Wei-BMS）" />
+  <!-- 当前软件版本 -->
+  <add key="Version" value="1.0" />
+  <!-- 联系我们信息 -->
+  <add key="Contact" value="QQ：1454904486;Email：zsyy94@163.com;" />
+  <!-- 软件许可证编号 -->
+  <add key="Licence" value="NO:2015101712345678" />
+  <!-- ================== 4：系统邮件错误报告反馈相关 ================== -->
+  <!-- 软件的错误报告发给谁 -->
+  <add key="ErrorReportTo" value="1454904486@qq.com,zsyy94@163.com" />
+  <!-- 发出错误邮箱的地址 -->
+  <add key="ErrorReportMailUserName" value="1454904486@qq.com" />
+  <!-- 发出错误邮箱的密码 -->
+  <add key="ErrorReportMailPassword" value="E62C963F2C098F7BD6B2B3E4812A49DD" />
+  <!-- 发出错误邮箱的名称 -->
+  <add key="ErrorReportMailName" value="zsyy94" />
+  <!-- 发出错误邮箱设置邮箱主机 -->
+  <add key="ErrorReportMailHost" value="smtp.exmail.qq.com" />
+  <!-- ================== 5：首页界面设置 ================== -->
+  <!-- IE浏览器窗口标题 -->
+  <add key="IETitle" value="微企业管理系统（Wei-BMS）" />
+  <!-- 主界面-顶部图标 -->
+  <add key="LoGoImg" value="home.png" />
+  <!-- 主界面-顶部图标宽度 -->
+  <add key="LoGoWidth" value="100" />
+  <!-- 主界面-顶部图标高度 -->
+  <add key="LoGoHeigth" value="100" />
+  <!-- ================== 6：企业号的参数配置 ================== -->
+  <!-- 企业号名称 -->
+  <add key="QYName" value="哈沃德" />
+  <!-- 企业号token -->
+  <add key="token" value="zsyy94" />
+  <!-- 企业号corpId -->
+  <add key="corpId" value="wxe1afc2b45b386c79" />
+  <!-- 企业号encodingAESKey -->
+  <add key="encodingAESKey" value="fPOOW5BxO5KhyGIKjbW3M98jejvpEAxsG0y6CGaxZho" />
+</appSettings>

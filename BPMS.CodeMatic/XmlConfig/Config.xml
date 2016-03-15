@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+
+  <!-- ================== 2：这里主要是服务器端配置项内容部分 ================== -->
+  <!-- 是否启动服务器缓存-->
+  <add key="IsCache" value="false" />
+  <!-- 服务器缓存设置时间（分钟）-->
+  <add key="TimeCache" value="30" />
+  <!-- 是否写日志-->
+  <add key="LogIsWrite" value="true" />
+  <!-- 系统日志保存路径-->
+  <add key="LogFilePath" value="C://BPMS_Log//CodeMatic" />
+
+  <!-- ================== 3：系统性的参数配置 ================== -->
+  <!-- 软件是否试用 -->
+  <add key="IsRegistration" value="false" />
+  <!-- 软件注册码 -->
+  <add key="RegistrationCode" value="2A1B132C0E64FA299B014B39F7DE5C2F" />
+  <!-- 公司信息 -->
+  <add key="CustomerCompanyName" value="哈沃德技术" />
+  <!-- 公司性质 -->
+  <add key="CustomerCompanyName" value="企业单位" />
+  <!-- 软件名称 -->
+  <add key="SoftName" value="微企业管理系统（Wei-BMS）" />
+  <!-- 当前软件版本 -->
+  <add key="Version" value="4.0" />
+  <!-- 联系我们信息 -->
+  <add key="Contact" value="QQ：1454904486;Email：1454904486@qq.com;" />
+
+  <!-- ================== 4：系统邮件错误报告反馈相关 ================== -->
+
+  <!-- 软件的错误报告发给谁 -->
+  <add key="ErrorReportTo" value="1454904486@qq.com,1454904486@qq.com" />
+  <!-- 发出错误邮箱的地址 -->
+  <add key="ErrorReportMailUserName" value="1454904486@qq.com" />
+  <!-- 发出错误邮箱的密码 -->
+  <add key="ErrorReportMailPassword" value="E62C963F2C098F7BD6B2B3E4812A49DD" />
+  <!-- 发出错误邮箱的名称 -->
+  <add key="ErrorReportMailName" value="微企业管理系统（Wei-BMS）"/>
+  <!-- 发出错误邮箱设置邮箱主机 -->
+  <add key="ErrorReportMailHost" value="smtp.exmail.qq.com"/>
+</appSettings>

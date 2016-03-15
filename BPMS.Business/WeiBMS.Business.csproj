@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4D1EBD2-D01C-4547-915B-E1CD4F7C89FD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BPMS.Business</RootNamespace>
+    <AssemblyName>BPMS.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseManager\BASE_InterfaceManageBLL.cs" />
+    <Compile Include="BaseManager\BPMS_AppendPropertyBLL.cs" />
+    <Compile Include="BaseManager\BPMS_ButtonBLL.cs" />
+    <Compile Include="BaseManager\BPMS_DataPermissionBLL.cs" />
+    <Compile Include="BaseManager\BPMS_EmployeeBLL.cs" />
+    <Compile Include="BaseManager\BPMS_InterfaceAccessBLL.cs" />
+    <Compile Include="BaseManager\BPMS_IPBlacklistBLL.cs" />
+    <Compile Include="BaseManager\BPMS_ItemDetailsBLL.cs" />
+    <Compile Include="BaseManager\BPMS_ItemsBLL.cs" />
+    <Compile Include="BaseManager\BPMS_OrganizationBLL.cs" />
+    <Compile Include="BaseManager\BPMS_PermissionBLL.cs" />
+    <Compile Include="BaseManager\BPMS_RoleMenuBLL.cs" />
+    <Compile Include="BaseManager\BPMS_RoleMenuButtonBLL.cs" />
+    <Compile Include="BaseManager\BPMS_RolesBLL.cs" />
+    <Compile Include="BaseManager\BPMS_ShortcutBLL.cs" />
+    <Compile Include="BaseManager\BPMS_SysLogBLL.cs" />
+    <Compile Include="BaseManager\BPMS_SysMenuBLL.cs" />
+    <Compile Include="BaseManager\BPMS_SysMenuButtonBLL.cs" />
+    <Compile Include="BaseManager\BPMS_TableColumnsBLL.cs" />
+    <Compile Include="BaseManager\BPMS_UserBLL.cs" />
+    <Compile Include="BaseManager\BPMS_UserMenuBLL.cs" />
+    <Compile Include="BaseManager\BPMS_UserMenuButtonBLL.cs" />
+    <Compile Include="BaseManager\BPMS_UserRoleBLL.cs" />
+    <Compile Include="BaseManager\BPMS_DataBaseBLL.cs" />
+    <Compile Include="BaseManager\BASE_FileBLL.cs" />
+    <Compile Include="BaseManager\BASE_NewsBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QYManager\BPMS_QYNumberBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BPMS.Entity\WeiBMS.Entity.csproj">
+      <Project>{d9aff79a-faff-46e7-9130-9e92eb118df6}</Project>
+      <Name>WeiBMS.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BPMS.IBusiness\WeiBMS.IBusiness.csproj">
+      <Project>{21c6ed9c-7c28-41fb-8b70-96b189844ae9}</Project>
+      <Name>WeiBMS.IBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BPMS.Service\WeiBMS.Service.csproj">
+      <Project>{0cf7cc60-9c51-4b0f-9eec-ff70cb1b190d}</Project>
+      <Name>WeiBMS.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.Kernel\DotNet.Kernel.csproj">
+      <Project>{46e0eaa8-cd7a-45cd-aa6d-debe5f05bfd8}</Project>
+      <Name>DotNet.Kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.Utilities\DotNet.Utilities.csproj">
+      <Project>{800ffc48-44e1-4b75-8738-4ee64a88a542}</Project>
+      <Name>DotNet.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
