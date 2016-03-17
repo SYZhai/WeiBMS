@@ -13,13 +13,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BPMS.WEB</RootNamespace>
     <AssemblyName>BPMS.WEB</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,29 +39,34 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Senparc.Weixin.QY, Version=3.2.5.19116, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Senparc.Weixin, Version=4.5.14.16445, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Senparc.Weixin.QY.dll</HintPath>
+      <HintPath>bin\Senparc.Weixin.dll</HintPath>
     </Reference>
+    <Reference Include="Senparc.Weixin.QY, Version=3.3.3.16445, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>bin\Senparc.Weixin.QY.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="api\api.aspx" />
@@ -157,7 +164,7 @@
     <Content Include="Index.htm" />
     <Content Include="QYManager\BPMS_QYNumberForm.aspx" />
     <Content Include="QYManager\BPMS_QYNumberList.aspx" />
-
+    <Content Include="QYManager\ConfigSetting\QYConfigInfo.aspx" />
     <Content Include="Themes\Images\16\201208010567.png" />
     <Content Include="Themes\Images\16\20130806122858842_easyicon_net_16.png" />
     <Content Include="Themes\Images\16\20131031105012109.png" />
@@ -4106,6 +4113,13 @@
     <Compile Include="QYManager\BPMS_QYNumberList.aspx.designer.cs">
       <DependentUpon>BPMS_QYNumberList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="QYManager\ConfigSetting\QYConfigInfo.aspx.cs">
+      <DependentUpon>QYConfigInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QYManager\ConfigSetting\QYConfigInfo.aspx.designer.cs">
+      <DependentUpon>QYConfigInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\LoadButton.ascx.cs">
       <DependentUpon>LoadButton.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4135,7 +4149,6 @@
     <None Include="Properties\PublishProfiles\BPMS.pubxml" />
     <Content Include="Themes\IPScaner\QQWry.Dat" />
     <Content Include="Themes\Scripts\TreeTable\css\images\vssver2.scc" />
-
     <Content Include="Themes\Scripts\Uploadify\check.php" />
     <Content Include="Themes\Scripts\Uploadify\com\adobe\air\logging\FileTarget.as" />
     <Content Include="Themes\Scripts\Uploadify\com\adobe\crypto\HMAC.as" />

@@ -2,6 +2,7 @@
 using BPMS.Entity;
 using BPMS.IBusiness;
 using DotNet.Utilities;
+using QY.API;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -159,8 +160,14 @@ namespace BPMS.WEB.CommonModule.Organize
                     }
                     else
                     {
+                        //保存成功后将数据同步到微信企业号
+                        if (!myCommFun.DeleteDepartment(Convert.ToInt32(bpms_organizationibll.GetEntity(key).Code)))
+                        {
+                            ShowMsgHelper.AlertCallback(MessageHelper.MSG0032);
+                        }
                         Response.Write(bpms_organizationibll.Delete(key));
                         Response.End();
+                       
                     }
                     break;
                 case "LoadBindDrop"://绑定下拉框，公司，部门，工作组

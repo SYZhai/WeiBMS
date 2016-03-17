@@ -13,7 +13,6 @@
   <add key="Oracle_BPMS" value="Data Source=XE;User ID=learun;Password=qwertyuiop;" />
   <!-- MySql连接字符串:server=服务器地址; user id=用户; password=密码; database=库名-->
   <add key="MySql_BPMS" value="server=192.168.0.110;user id=root;password=qwertyuiop;database=BPMS_DB;" />
-
   <!-- ================== 2：这里主要是服务器端配置项内容部分 ================== -->
   <!-- 系统默认登录账户 -->
   <add key="CurrentUserName" value="System" />
@@ -42,11 +41,9 @@
   <!-- 允许重复登录,多人用同一帐号同时登录 -->
   <add key="CheckOnLine" value="false" />
   <!-- 是否开启IP限制 -->
-  <add key="CheckIPAddress" value="true"/>
+  <add key="CheckIPAddress" value="true" />
   <!-- 是否开启接口限制 ,有效用户可以访问接口-->
-  <add key="CheckInterface" value="true"/>
-
-
+  <add key="CheckInterface" value="true" />
   <!-- ================== 3：系统性的参数配置 ================== -->
   <!-- 软件是否试用 -->
   <add key="IsRegistration" value="false" />
@@ -85,10 +82,8 @@
   <!-- ================== 6：企业号的参数配置 ================== -->
   <!-- 企业号名称 -->
   <add key="QYName" value="哈沃德" />
-  <!-- 企业号token -->
-  <add key="token" value="zsyy94" />
   <!-- 企业号corpId -->
   <add key="corpId" value="wxe1afc2b45b386c79" />
-  <!-- 企业号encodingAESKey -->
-  <add key="encodingAESKey" value="fPOOW5BxO5KhyGIKjbW3M98jejvpEAxsG0y6CGaxZho" />
+  <!-- 企业号corpSecret -->
+  <add key="corpSecret" value="rpRG8fZ1D3OWCYpTSPbM31tbm_fKISEcryodYR62BUSz5FwAzA5rgBs9l3aU9bwm" />
 </appSettings>

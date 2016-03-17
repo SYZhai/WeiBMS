@@ -6,12 +6,24 @@ using System.Net;
 using System.IO;
 using System.Data;
 using System.Text.RegularExpressions;
+using Senparc.Weixin.QY.AdvancedAPIs;
+using Senparc.Weixin.QY.CommonAPIs;
+using Senparc.Weixin.QY.Entities;
+using Senparc.Weixin.QY.AdvancedAPIs.MailList;
+using BPMS.Entity;
+using DotNet.Kernel;
 
 namespace QY.API
 {
     public class myCommFun
     {
-        public DataTable postFun(string _apiUrl,string postData) //post请求方式
+        /// <summary>
+        /// post请求方式
+        /// </summary>
+        /// <param name="_apiUrl">接口链接</param>
+        /// <param name="postData">数据</param>
+        /// <returns></returns>
+        public DataTable postFun(string _apiUrl,string postData)
         {
             string apiUrl = _apiUrl;
             HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(apiUrl);
@@ -28,44 +40,107 @@ namespace QY.API
             DataTable resultDt = TODT(result);
             return resultDt;
         }
+        public static QYConfigInfo GetQYConfig()
+        {
+            QYConfigInfo config = new QYConfigInfo();
+            config.QYName = ConfigHelper.GetValue("QYName");
+            config.QYCorpId = ConfigHelper.GetValue("corpId");
+            config.QYSecret = ConfigHelper.GetValue("corpSecret");
+            return config;
+        }
         /// <summary>
-        ///  //更新access_token值
+        /// 创建部门
         /// </summary>
         /// <param name="_id"></param>
-        /// <param name="AppId"></param>
-        /// <param name="AppSecret"></param>
-        private void UpdateAccess_Token(string AppId, string AppSecret)
+        /// <param name="_name"></param>
+        /// <param name="_parentid"></param>
+        /// <param name="_order"></param>
+        /// <param name="_access_token"></param>
+        /// <returns></returns>
+        public static bool CreateDepartment(int _id,string _name,int _parentid,int _order)
         {
-            try
+            AccessTokenResult access_token_result = new AccessTokenResult();
+            QYConfigInfo config = GetQYConfig();
+            access_token_result = CommonApi.GetToken(config.QYCorpId, config.QYSecret);
+            //调用接口
+            var result= MailListApi.CreateDepartment(access_token_result.access_token, _name,_parentid,_order,_id);
+            if (result.errmsg == "created")
             {
-               
-                string newToken = "";
-
-                try
-                {
-                    var result = Senparc.Weixin.MP.CommonAPIs.CommonApi.GetToken(AppId, AppSecret);
-                    newToken = result.access_token;
-
-                }
-                catch (Exception ex)
-                {
-                    
-
-                }
-                finally
-                {
-                    //更新到数据库里
-                   
-                }
+                return true;
             }
-            catch (Exception ex)
+            else
             {
-
+                return false;
             }
-
-
         }
-        public static DataTable TODT(string strJson) ///将json解析成datatable
+        /// <summary>
+        /// 更新部门信息
+        /// </summary>
+        /// <param name="_id"></param>
+        /// <param name="_name"></param>
+        /// <param name="_parentid"></param>
+        /// <param name="_order"></param>
+        /// <returns></returns>
+        public static bool UpdateDepartment(int _id, string _name, int _parentid, int _order)
+        {
+            AccessTokenResult access_token_result = new AccessTokenResult();
+            QYConfigInfo config = GetQYConfig();
+            access_token_result = CommonApi.GetToken(config.QYCorpId, config.QYSecret);
+            //调用接口
+            var result = MailListApi.UpdateDepartment(access_token_result.access_token,_id.ToString(), _name, _parentid, _order);
+            if (result.errmsg == "updated")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// 删除部门信息
+        /// </summary>
+        /// <param name="_id"></param>
+        /// <returns></returns>
+        public static bool DeleteDepartment(int _id)
+        {
+            AccessTokenResult access_token_result = new AccessTokenResult();
+            QYConfigInfo config = GetQYConfig();
+            access_token_result = CommonApi.GetToken(config.QYCorpId, config.QYSecret);
+            //调用接口
+            var result = MailListApi.DeleteDepartment(access_token_result.access_token, _id.ToString());
+            if (result.errmsg == "deleted")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// 获取部门列表
+        /// </summary>
+        /// <param name="_id"></param>
+        /// <returns></returns>
+        public static List<DepartmentList> GetDepartmentList(int _id)
+        {
+            AccessTokenResult access_token_result = new AccessTokenResult();
+            QYConfigInfo config = GetQYConfig();
+            access_token_result = CommonApi.GetToken(config.QYCorpId, config.QYSecret);
+            //调用接口
+            var result = MailListApi.GetDepartmentList(access_token_result.access_token,_id);
+            if (result.errmsg == "ok")
+            {
+                return result.department;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        ///将json解析成datatable
+        public static DataTable TODT(string strJson) 
         {
             DataTable tb = null;
             //获取数据  

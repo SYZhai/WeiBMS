@@ -165,5 +165,9 @@ namespace DotNet.Utilities
         /// 拒绝登入，IP位置不符限制条件。
         /// </summary>
         public static string MSG0031 = "Session超时，请重新登录。";
+        /// <summary>
+        /// 企业号同步失败。
+        /// </summary>
+        public static string MSG0032 = "企业号同步失败。";
     }
 }

@@ -2,6 +2,7 @@
 using BPMS.Entity;
 using BPMS.IBusiness;
 using DotNet.Utilities;
+using QY.API;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -166,22 +167,55 @@ namespace BPMS.WEB.CommonModule.Organize
                 bpms_organization.ModifyUserId = RequestSession.GetSessionUser().UserId;
                 bpms_organization.ModifyUserName = RequestSession.GetSessionUser().UserName;
                 IsOk = bpms_organizationibll.Update(bpms_organization);
-                if (IsOk) { ShowMsgHelper.AlertCallback(MessageHelper.MSG0006); }
+                if (IsOk)
+                {
+                    //保存成功后将数据同步到微信企业号
+                    if (!myCommFun.UpdateDepartment(Convert.ToInt32(bpms_organization.Code), bpms_organization.FullName, toQYParentId(bpms_organization.ParentId), Convert.ToInt32(bpms_organization.SortCode)))
+                    {
+                        ShowMsgHelper.AlertCallback(MessageHelper.MSG0032);
+                    }
+                    ShowMsgHelper.AlertCallback(MessageHelper.MSG0006);
+                }
             }
             else
             {
+
                 bpms_organization.OrganizationId = CommonHelper.GetGuid;
                 bpms_organization.ModifyUserId = RequestSession.GetSessionUser().UserId;
                 bpms_organization.ModifyUserName = RequestSession.GetSessionUser().UserName;
                 IsOk = bpms_organizationibll.Insert(bpms_organization);
                 if (IsOk) 
                 {
+                    //保存成功后将数据同步到微信企业号
+                    
+                    if (!myCommFun.CreateDepartment(Convert.ToInt32(bpms_organization.Code), bpms_organization.FullName, toQYParentId(bpms_organization.ParentId), Convert.ToInt32(bpms_organization.SortCode)))
+                    {
+                        ShowMsgHelper.AlertCallback(MessageHelper.MSG0032);
+                    }
                     bpms_datapermissionibll.AddItemDefault(RequestSession.GetSessionUser().RoleId, "Organization", bpms_organization.OrganizationId, RequestSession.GetSessionUser().UserId);
                     ShowMsgHelper.AlertCallback(MessageHelper.MSG0005); 
                 }
             }
             if (!IsOk)
                 ShowMsgHelper.Alert_Error(MessageHelper.MSG0022);
+        }
+        /// <summary>
+        /// 将系统ParentId转换为Code作为企业号ParentId
+        /// </summary>
+        /// <param name="parentId"></param>
+        /// <returns></returns>
+        public int toQYParentId(string parentId)
+        {
+            bpms_organization = null;
+            bpms_organization = bpms_organizationibll.GetEntity(parentId);
+            if (bpms_organization != null)
+            {
+                return Convert.ToInt32(bpms_organization.Code);
+            }
+            else
+            {
+                return 0;
+            }
         }
 
     }
