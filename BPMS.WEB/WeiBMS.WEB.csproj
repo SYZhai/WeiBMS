@@ -2754,6 +2754,7 @@
     <Content Include="Themes\Images\Format\video.png" />
     <Content Include="Themes\Images\Format\word.png" />
     <Content Include="Themes\Images\Format\zip.png" />
+    <Content Include="Themes\Images\headpic.jpg" />
     <Content Include="Themes\Images\hide_topbar.png" />
     <Content Include="Themes\Images\icon_over.png" />
     <Content Include="Themes\Images\icon_text_l.png" />

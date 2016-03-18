@@ -2,8 +2,12 @@
 using BPMS.Entity;
 using BPMS.IBusiness;
 using DotNet.Utilities;
+using QY.API;
+using Senparc.Weixin.QY.AdvancedAPIs.MailList;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Data;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -95,7 +99,18 @@ namespace BPMS.WEB.CommonModule.Employee
                 bpms_employee.ModifyUserId = RequestSession.GetSessionUser().UserId;
                 bpms_employee.ModifyUserName = RequestSession.GetSessionUser().UserName;
                 IsOk = bpms_employeeibll.Update(bpms_employee);
-                if (IsOk) { ShowMsgHelper.AlertParmCallback(MessageHelper.MSG0006); }
+                if (IsOk)
+                {
+                    //保存成功后将数据同步到微信企业号
+                    string[] tempDepart = new string[3] { bpms_employee.CompanyId, bpms_employee.DepartmentId, bpms_employee.WorkgroupId };
+                    Extattr extattr = new Extattr();
+                    extattr = null;
+                    if (!myCommFun.UpdateMember(bpms_employee.Code, bpms_employee.RealName, toDepartmentId(tempDepart), toPosition(bpms_employee.DutyId), bpms_employee.Mobile, toGender(bpms_employee.Gender), bpms_employee.Email, bpms_employee.WeixinId,Convert.ToInt32(bpms_employee.Enabled), bpms_employee.headpic,extattr))
+                    {
+                        ShowMsgHelper.AlertCallback(MessageHelper.MSG0032);
+                    }
+                    ShowMsgHelper.AlertParmCallback(MessageHelper.MSG0006);
+                }
             }
             else
             {
@@ -103,10 +118,81 @@ namespace BPMS.WEB.CommonModule.Employee
                 bpms_employee.CreateUserId = RequestSession.GetSessionUser().UserId;
                 bpms_employee.CreateUserName = RequestSession.GetSessionUser().UserName;
                 IsOk = bpms_employeeibll.Insert(bpms_employee);
-                if (IsOk) { ShowMsgHelper.AlertParmCallback(MessageHelper.MSG0005); }
+                if (IsOk)
+                {
+                    //保存成功后将数据同步到微信企业号
+                    string[] tempDepart = new string[3] { bpms_employee.CompanyId, bpms_employee.DepartmentId, bpms_employee.WorkgroupId };
+                    Extattr extattr = new Extattr();
+                    extattr = null;
+                    if (!myCommFun.CreateMember(bpms_employee.Code, bpms_employee.RealName, toDepartmentId(tempDepart), toPosition(bpms_employee.DutyId), bpms_employee.Mobile, toGender(bpms_employee.Gender), bpms_employee.Email, bpms_employee.WeixinId, bpms_employee.headpic,extattr))
+                    {
+                        ShowMsgHelper.AlertCallback(MessageHelper.MSG0032);
+                    }
+                    ShowMsgHelper.AlertParmCallback(MessageHelper.MSG0005);
+                }
             }
             if (!IsOk)
                 ShowMsgHelper.Alert_Error(MessageHelper.MSG0022);
         }
+        /// <summary>
+        /// 将系统部门信息转换成企业号部门信息
+        /// </summary>
+        /// <param name="department"></param>
+        /// <returns></returns>
+        public int[] toDepartmentId(string[] department)
+        {
+            BPMS_OrganizationIBLL bpms_organizationibll = new BPMS_OrganizationBLL();
+            BPMS_Organization bpms_organization = new BPMS_Organization();
+            int[] QyDepartment = new int[3];
+            for(int i = 0; i < department.Length; i++)
+            {
+                bpms_organization = new BPMS_Organization();
+                bpms_organization = bpms_organizationibll.GetEntity(department[i].ToString());
+                QyDepartment[i] =Convert.ToInt32(bpms_organization.Code);
+            }
+            return QyDepartment;
+
+        }
+       
+        public string toGender(string _gender)
+        {
+            string gender = "";
+            switch(_gender)
+            {
+                case "男":
+                    gender="1";
+                    break;
+                case "女":
+                    gender = "2";
+                    break;
+                default:
+                    gender = "0";
+                    break;
+
+            }
+            return gender;
+            
+        }
+        /// <summary>
+        /// 将职位code转换为名称
+        /// </summary>
+        /// <param name="DutyID"></param>
+        /// <returns></returns>
+        public string toPosition(string DutyId)
+        {
+            BPMS_ItemDetailsIBLL bpms_itemdetailsibll = new BPMS_ItemDetailsBLL();
+            IList list = bpms_itemdetailsibll.GetList();
+            IList DutyIdList = IListHelper.IListToList<BPMS_ItemDetails>(list).FindAll(t => t.ItemsId == "137a2d97-d1d9-4752-9c5e-239097e2ed68");
+            foreach (BPMS_ItemDetails entity in DutyIdList)
+            {
+                if (entity.ItemCode == DutyId)
+                {
+                    return entity.ItemName;
+                }
+            }
+     
+            return "";
+        }
     }
+    
 }

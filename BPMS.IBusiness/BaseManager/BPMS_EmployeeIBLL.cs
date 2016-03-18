@@ -12,8 +12,8 @@ namespace BPMS.IBusiness
     /// <summary>
     /// 员工、职员 - 接口
     /// <author>
-    ///		<name>shecixiong</name>
-    ///		<date>2013.10.22</date>
+    ///		<name>SYZhai</name>
+    ///		<date>2016.03.18</date>
     /// </author>
     /// </summary>
     public interface BPMS_EmployeeIBLL

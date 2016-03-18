@@ -109,6 +109,7 @@ namespace BPMS.WEB.CommonModule.Organize
             List<BPMS_Organization> itemNode = IListHelper.IListToList<BPMS_Organization>(list).FindAll(t => t.ParentId == ParentId);
             if (itemNode.Count > 0)
             {
+              
                 sb_TreeNode.Append("<ul>");
                 foreach (BPMS_Organization entity in itemNode)
                 {

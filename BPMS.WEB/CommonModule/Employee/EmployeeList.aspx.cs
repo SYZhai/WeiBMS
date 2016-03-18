@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
+using QY.API;
 
 namespace BPMS.WEB.CommonModule.Employee
 {
@@ -51,6 +52,12 @@ namespace BPMS.WEB.CommonModule.Employee
                     Response.End();
                     break;
                 case "Delete":    //删除数据
+                    //保存成功后将数据同步到微信企业号
+                    bpms_employee = bpms_employeeibll.GetEntity(key);
+                    if (!myCommFun.DeleteMember(bpms_employee.Code))
+                    {
+                        ShowMsgHelper.AlertCallback(MessageHelper.MSG0032);
+                    }
                     Response.Write(bpms_employeeibll.Delete(key));
                     Response.End();
                     break;

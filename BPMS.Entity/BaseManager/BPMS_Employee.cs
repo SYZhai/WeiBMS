@@ -12,8 +12,8 @@ namespace BPMS.Entity
     /// <summary>
     /// 员工管理
     /// <author>
-    ///		<name>shecixiong</name>
-    ///		<date>2013.10.29</date>
+    ///		<name>SYZhia</name>
+    ///		<date>2016.03.18</date>
     /// </author>
     /// </summary>
     [Description("员工管理")]
@@ -256,6 +256,40 @@ namespace BPMS.Entity
             set
             {
                 this._BankCode = value;
+            }
+        }
+        private string _headpic = null;
+        /// <summary>
+        /// 头像
+        /// </summary>
+        /// <returns></returns>
+        [Description("头像")]
+        public string headpic
+        {
+            get
+            {
+                return this._headpic;
+            }
+            set
+            {
+                this._headpic = value;
+            }
+        }
+        private string _WeixinId = null;
+        /// <summary>
+        /// 微信号
+        /// </summary>
+        /// <returns></returns>
+        [Description("微信号")]
+        public string WeixinId
+        {
+            get
+            {
+                return this._WeixinId;
+            }
+            set
+            {
+                this._WeixinId = value;
             }
         }
         private string _Email = null;

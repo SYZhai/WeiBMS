@@ -77,6 +77,18 @@
             $("#hiddenWorkgroupId").val($("#WorkgroupId").val());
         }
     </script>
+    <style type="text/css">
+        .auto-style1 {
+            width: 23px;
+        }
+        .auto-style2 {
+            width: 135px;
+            height: 170px;
+        }
+        .auto-style3 {
+            width: 398px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -97,24 +109,34 @@
                 <div id="tb_basic" class="tabPanel">
                     <table border="0" cellpadding="0" cellspacing="0" class="frm">
                         <tr>
-                            <th>姓名：</th>
+                            <th>照片：</th>
+                            <td >
+                                <img id="headpic" alt="" src="../../Themes/Images/headpic.jpg" class="auto-style2"/></td>
+                            <th>微信号：</th>
                             <td>
+                                <input id="WeixinId" maxlength="50" runat="server" type="text" datacol="yes" err="微信号" checkexpession="NotNull" class="txt" style="width: 220px" />
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <th>姓名：</th>
+                            <td class="auto-style3">
                                 <input id="RealName" maxlength="50" runat="server" type="text" datacol="yes" err="姓名" checkexpession="NotNull" class="txt" style="width: 220px" />
                             </td>
-                            <th>工号：</th>
+                            <th class="auto-style1">工号：</th>
                             <td>
                                 <input id="Code" maxlength="50" runat="server" type="text" datacol="yes" err="编号,工号" checkexpession="NotNull" class="txt" style="width: 220px" />
                             </td>
                         </tr>
                         <tr>
                             <th>性别：</th>
-                            <td>
+                            <td class="auto-style3">
                                 <select id="Gender" runat="server" class="select" style="width: 226px">
                                     <option value="男">男</option>
                                     <option value="女">女</option>
                                 </select>
                             </td>
-                            <th>公司：
+                            <th class="auto-style1">公司：
                             </th>
                             <td>
                                 <select id="CompanyId" onchange="CompanyClick(this.id)" runat="server" class="select" datacol="yes" err="公司" checkexpession="NotNull" style="width: 227px">
@@ -124,11 +146,11 @@
                         <tr>
                             <th>部门名称：
                             </th>
-                            <td>
+                            <td class="auto-style3">
                                 <select id="DepartmentId" onchange="DepartmentClick(this.id)" runat="server" class="select" datacol="yes" err="部门名称" checkexpession="NotNull" style="width: 227px">
                                 </select>
                             </td>
-                            <th>工作组名称：
+                            <th class="auto-style1">工作组名称：
                             </th>
                             <td>
                                 <select id="WorkgroupId" runat="server" class="select" style="width: 227px">
@@ -137,10 +159,10 @@
                         </tr>
                         <tr>
                             <th>出生日期：</th>
-                            <td>
+                            <td class="auto-style3">
                                 <input id="Birthday" maxlength="23" onfocus="WdatePicker()" class="txt Wdate" runat="server" type="text" style="width: 220px" />
                             </td>
-                            <th>年龄：</th>
+                            <th class="auto-style1">年龄：</th>
                             <td>
                                 <input id="Age" maxlength="3" runat="server" type="text" class="txt" datacol="yes" err="年龄"
                                     checkexpession="Num" onfocus="Keypress(this.id)" style="width: 220px" />
@@ -148,10 +170,10 @@
                         </tr>
                         <tr>
                             <th>所学专业：</th>
-                            <td>
+                            <td class="auto-style3">
                                 <input id="Major" maxlength="50" runat="server" type="text" class="txt" style="width: 220px" />
                             </td>
-                            <th>毕业院校： </th>
+                            <th class="auto-style1">毕业院校： </th>
                             <td>
                                 <input id="School" maxlength="200" runat="server" type="text" class="txt" style="width: 220px" />
                             </td>
@@ -159,11 +181,11 @@
                         <tr>
 
                             <th>最高学历：</th>
-                            <td>
+                            <td class="auto-style3">
                                 <select id="Education" runat="server" class="select" style="width: 227px">
                                 </select>
                             </td>
-                            <th>最高学位：</th>
+                            <th class="auto-style1">最高学位：</th>
                             <td>
                                 <select id="Degree" runat="server" class="select" style="width: 227px">
                                 </select>
@@ -171,11 +193,11 @@
                         </tr>
                         <tr>
                             <th>职称：</th>
-                            <td>
+                            <td class="auto-style3">
                                 <select id="TitleId" runat="server" class="select" style="width: 227px">
                                 </select>
                             </td>
-                            <th>职称等级： </th>
+                            <th class="auto-style1">职称等级： </th>
                             <td>
                                 <select id="TitleLevel" runat="server" class="select" style="width: 227px">
                                 </select>
@@ -183,10 +205,10 @@
                         </tr>
                         <tr>
                             <th>职称评期：</th>
-                            <td>
+                            <td class="auto-style3">
                                 <input id="Text1" maxlength="50" runat="server" type="text" class="txt" style="width: 220px" />
                             </td>
-                            <th>有效：</th>
+                            <th class="auto-style1">有效：</th>
                             <td>
                                 <span class="item">
                                     <input id="Enabled" type="checkbox" runat="server" checked="checked" style="vertical-align: middle;" />
