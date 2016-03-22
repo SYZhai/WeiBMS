@@ -67,6 +67,7 @@
     <Compile Include="BaseManager\BASE_NewsBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QYManager\BPMS_QYNumberBLL.cs" />
+    <Compile Include="QYManager\QY_ApplicationBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BPMS.Entity\WeiBMS.Entity.csproj">

@@ -69,6 +69,7 @@
     <Compile Include="BaseManager\BPMS_PermissionDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QYManager\BPMS_QYNumberDAL.cs" />
+    <Compile Include="QYManager\QY_ApplicationDAL.cs" />
     <Compile Include="Utilities\DataPermission.cs" />
     <Compile Include="Utilities\LogOnHelper.cs" />
     <Compile Include="Utilities\StorePermission.cs" />

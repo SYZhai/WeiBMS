@@ -74,6 +74,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QYManager\BPMS_QYNumber.cs" />
     <Compile Include="QYManager\ConfigSetting\QYConfigInfo.cs" />
+    <Compile Include="QYManager\QY_Application.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNet.Kernel\DotNet.Kernel.csproj">
